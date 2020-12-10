@@ -1,6 +1,8 @@
+/* Default styles for page. */
 * {
   box-sizing: border-box;
-  font-family: Ubuntu, sans-serif;
+  font-family: Droid+Sans, sans-serif;
+  text-shadow: 2px 2px 2px rgb(243, 223, 187)
 }
 
 html,
@@ -17,6 +19,12 @@ body {
   padding-bottom: 130px;
   overflow: auto;
 }
+
+/* Sets background color of navbar. */
+.navbar 
+  {
+    background-color: rgb(0, 0, 0) !important;
+  }
 
 /* The footer is positioned at the bottom of the page */
 .footer {
@@ -50,6 +58,14 @@ body {
   left: 150px;
   width: 35px;
   color: white;
+}
+
+.drop-shadow {
+  box-shadow: 3px 3px 3px rgb(165, 165, 165);
+}
+
+.block {
+  display: block;
 }
 
 /* Adding styles to the aside and filter form */
@@ -94,10 +110,9 @@ select {
 /* The styles for the parallax */
 .hero {
   position: relative;
-  height: 550px;
+  height: 700px;
   padding: 20px;
   margin: 0;
-  background: black;
   background-image: url("../images/nasa.jpg");
   background-attachment: fixed;
   background-position: bottom center;

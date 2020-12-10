@@ -5,29 +5,52 @@
   <meta charset="utf-8">
   <title>UFO Finder</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <link rel="stylesheet" href="static/css/style.css">
+  <!-- Import Bootstrap for navbar and data table -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <!-- Import Google Fonts -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Ranchers|Droid+Sans">  <link rel="stylesheet" href="static/css/style.css">
 </head>
 
 <body>
+
+  <!-- Wrapper for centering content on page -->
   <div class="wrapper">
-    <nav class="navbar navbar-default">
+
+    <!-- Bootstrap navbar -->
+    <nav class="navbar navbar-dark">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="index.html">UFO Sightings
-            <img class="nav-ufo" src="static/images/ufo.svg">
+          <a class="navbar-brand" href="index.html">UFO Sightings<img class="nav-ufo" src="static/images/ufo.svg">
           </a>
         </div>
       </div>
     </nav>
+
+    <!-- Title and subtitle -->
     <div class="hero text-center">
       <h1>UFO Sightings</h1>
-      <p>The Truth is Out There</p>
+      <br>
+      <h3>The Truth is Out There</h3>
+      <br>
+      <!-- Down arrows -->
+      <strong><h2 style="color:rgb(75, 75, 75)">V</h2></strong>
+      <strong><h2 style="color:rgb(75, 75, 75)">V</h2></strong>
+      <strong><h2 style="color:rgb(75, 75, 75)">V</h2></strong>
     </div>
+    <br>
+
+    <!-- Instructions to guest -->
+    <strong><h4 class="text-center">
+      Search UFO sightings by date.
+    </h4></strong>
+    <!-- Form and table -->
     <div class="container">
       <div class="row margin-top-50">
-        <div class="col-md-2">
+
+        <!-- Form -->
+        <div class="col-md-3">
           <aside class="filters">
             <div class="panel panel-default">
               <div class="panel-heading">Filter Search</div>
@@ -47,7 +70,9 @@
             </div>
           </aside>
         </div>
-        <div class="col-md-10">
+
+        <!-- Table -->
+        <div class="col-md-9">
           <div id="table-area" class="">
             <table id="ufo-table" class="table table-striped">
               <thead>
@@ -61,12 +86,14 @@
                   <th class="table-head">Comments</th>
                 </tr>
               </thead>
-              <tbody></tbody>
+                <tbody>
+                  <!-- Table body loaded dynamically by app.js -->
+                </tbody>
             </table>
-          </div>
-        </div>
-      </div>
-    </div>
+          </div> <!-- Table area -->
+        </div> <!-- col-md-10 -->
+      </div> <!-- row margin-top-50 -->
+    </div> <!-- container -->
     <footer class="footer">
       <span class="bottom">UFO Sightings</span>
     </footer>
