@@ -5,7 +5,7 @@
 // Import json from data.js.
 var reports = data;
 
-// Select tag where table components will be appended.
+// Select element from index.html where table components will be appended.
 var tbody = d3.select("tbody");
 
 // Loop over json, converting it to array of objects.
@@ -33,19 +33,38 @@ reports.forEach
 
 
 
+// Select button tag to add functionality.
+var submitButton = d3.select("button");
 
+// Click handler
+submitButton.on
+(
+    "click", function()
+    {
+        // Prevent automatic page refresh.
+        d3.event.preventDefault();
 
-var arrayToDisplay = [];
+        // Get user inputs.
+        var userDate = d3.select("#datetime").property("value");
+        var userCity = d3.select("#city").property("value");
+        var userState = d3.select("#state").property("value");
+        var userCountry = d3.select("#country").property("value");
+        var userShape = d3.select("#shape").property("value");
 
-// function selectByDate(sighting, date) {
-//    if (sighting.datetime === date)
-//      {
-//          return sighting object;
-//      };
-// }
+        // Get filtered array based on user input.
+        var filteredReports = reports.filter
+        (
+            report => report.datetime === userDate
+                    
+        );
+        console.log(filteredReports)
 
-// for (var i: 0, var i: tableData.length, i++)
-//   {
-//      sighting object = selectByDate(tableData[i], date);
-//       arrayToDisplay.append(sighting object);
-//   }
+        // Build table from filtered array.
+
+    }
+)
+
+// && report.city === userCity
+//                     && report.state === userState
+//                     && report.country === userCountry
+//                     && report.shape === userShape
