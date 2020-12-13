@@ -77,8 +77,6 @@ submitButton.on
 
         }
 
-        console.log(filteredReports)
-
         // Delete all table rows.
         d3.selectAll("tr").remove()
 
@@ -111,13 +109,14 @@ submitButton.on
 
 
 // Select reset button tag to add functionality.
-var resetButton = d3.select("reset-btn");
+var resetButton = d3.select("#reset-btn");
 
 // Click handler resets table to full dataset.
 resetButton.on
 (
     "click", function()
     {
+        console.log("View full table works!!!")
         // Prevent automatic page refresh.
         d3.event.preventDefault();
 
