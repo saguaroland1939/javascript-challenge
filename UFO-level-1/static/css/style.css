@@ -2,7 +2,6 @@
 * {
   box-sizing: border-box;
   font-family: Droid+Sans, sans-serif;
-  text-shadow: 2px 2px 2px rgb(243, 223, 187)
 }
 
 html,
@@ -121,6 +120,7 @@ select {
   background-attachment: fixed;
   background-position: bottom center;
   background-size: cover;
+  text-shadow: 2px 2px 2px rgb(243, 223, 187);
 }
 
 .hero h1 {

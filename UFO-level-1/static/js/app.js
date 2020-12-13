@@ -51,29 +51,29 @@ submitButton.on
         var userShape = d3.select("#shape").property("value");
 
         // Create blank array to hold filtered reports.
-        var filteredReports = [];
+        var filteredReports = reports;
 
          // If user provides input, use it to filter. E.g., if user has entered a date, filter based on date.
         if(userDate !== "")
         {
-            filteredReports = reports.filter(report => report.datetime === userDate);
+            filteredReports = filteredReports.filter(report => report.datetime === userDate);
         }
         
         if(userCity !== "")
         {
-            filteredReports = reports.filter(report => report.city === userCity);
+            filteredReports = filteredReports.filter(report => report.city === userCity);
 
         }
 
         if(userState !== "")
         {
-            filteredReports = reports.filter(report => report.state === userState);
+            filteredReports = filteredReports.filter(report => report.state === userState);
 
         }
 
         if(userShape !== "")
         {
-            filteredReports = reports.filter(report => report.shape === userShape);
+            filteredReports = filteredReports.filter(report => report.shape === userShape);
 
         }
 
