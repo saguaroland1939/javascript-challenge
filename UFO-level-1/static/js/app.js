@@ -46,25 +46,40 @@ submitButton.on
 
         // Get user inputs.
         var userDate = d3.select("#datetime").property("value");
-        var userCity = d3.select("#city").property("value");
-        var userState = d3.select("#state").property("value");
-        var userCountry = d3.select("#country").property("value");
-        var userShape = d3.select("#shape").property("value");
+       // var userCity = d3.select("#city").property("value");
+       // var userState = d3.select("#state").property("value");
+      //  var userCountry = d3.select("#country").property("value");
+      //  var userShape = d3.select("#shape").property("value");
 
-        // Get filtered array based on user input.
-        var filteredReports = reports.filter
+        // Get filtered array of objects based on user input criteria.
+        var filteredReports = reports.filter(report => report.datetime === userDate);
+
+        // Delete the all table rows.
+        d3.selectAll("tr").remove()
+
+        // Build new table from filtered array.
+        // Loop over json, converting it to array of objects.
+        filteredReports.forEach
         (
-            report => report.datetime === userDate
-                    
-        );
-        console.log(filteredReports)
+            filteredReport =>
+            {
+                // For each object in reports array, append a blank row to body of table.
+                row = tbody.append("tr");
 
-        // Build table from filtered array.
-
-    }
-)
-
-// && report.city === userCity
-//                     && report.state === userState
-//                     && report.country === userCountry
-//                     && report.shape === userShape
+                // For each object in reports array, also extract its values and store in an array of values.
+                // Loop through the array of values:
+                //     1. Assign each value to a variable called "value"
+                //     2. For each value in report object, append a blank cell to table and 
+                //        append corresponding value from report object to that cell.
+                Object.values(filteredReport).forEach
+                (
+                    value => 
+                    {
+                        var cell = row.append("td");
+                        cell.text(value);
+                    }
+                ) // forEach over array of values in one object
+            } // arrow function
+        ); // forEach over list
+    } // click handler
+) // event listener
