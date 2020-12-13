@@ -4,5 +4,5 @@
 
 ### This web app uses D3.js to dynamically construct a table from a json data file. The table contains information about alien sightings including date, location, and misc comments. Visitors can query the data with multiple optional search fields.
 
-### Languages, libraries, and frameworks used: HTML, CSS, Bootstrap framework, JavaScript, D3 library, Google Fonts API.
+#### Languages, libraries, and frameworks used: HTML, CSS, Bootstrap framework, JavaScript, D3 library, Google Fonts API.
 
