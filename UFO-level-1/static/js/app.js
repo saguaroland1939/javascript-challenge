@@ -33,10 +33,10 @@ reports.forEach
 
 
 
-// Select button tag to add functionality.
-var submitButton = d3.select("button");
+// Select submit button element to add functionality.
+var submitButton = d3.select("#filter-btn");
 
-// Click handler
+// Click handler filters table based on user input.
 submitButton.on
 (
     "click", function()
@@ -46,15 +46,40 @@ submitButton.on
 
         // Get user inputs.
         var userDate = d3.select("#datetime").property("value");
-       // var userCity = d3.select("#city").property("value");
-       // var userState = d3.select("#state").property("value");
-      //  var userCountry = d3.select("#country").property("value");
-      //  var userShape = d3.select("#shape").property("value");
+        var userCity = d3.select("#city").property("value");
+        var userState = d3.select("#state").property("value");
+        var userShape = d3.select("#shape").property("value");
 
-        // Get filtered array of objects based on user input criteria.
-        var filteredReports = reports.filter(report => report.datetime === userDate);
+        // Create blank array to hold filtered reports.
+        var filteredReports = [];
 
-        // Delete the all table rows.
+         // If user provides input, use it to filter. E.g., if user has entered a date, filter based on date.
+        if(userDate !== "")
+        {
+            filteredReports = reports.filter(report => report.datetime === userDate);
+        }
+        
+        if(userCity !== "")
+        {
+            filteredReports = reports.filter(report => report.city === userCity);
+
+        }
+
+        if(userState !== "")
+        {
+            filteredReports = reports.filter(report => report.state === userState);
+
+        }
+
+        if(userShape !== "")
+        {
+            filteredReports = reports.filter(report => report.shape === userShape);
+
+        }
+
+        console.log(filteredReports)
+
+        // Delete all table rows.
         d3.selectAll("tr").remove()
 
         // Build new table from filtered array.
@@ -78,8 +103,48 @@ submitButton.on
                         var cell = row.append("td");
                         cell.text(value);
                     }
-                ) // forEach over array of values in one object
+                ); // forEach over array of values in one object
             } // arrow function
         ); // forEach over list
     } // click handler
 ) // event listener
+
+
+// Select reset button tag to add functionality.
+var resetButton = d3.select("reset-btn");
+
+// Click handler resets table to full dataset.
+resetButton.on
+(
+    "click", function()
+    {
+        // Prevent automatic page refresh.
+        d3.event.preventDefault();
+
+        // Remove any rows present.
+        d3.selectAll("tr").remove();
+
+        // Loop over json, converting it to array of objects.
+        reports.forEach
+        (
+            report =>
+            {
+                // Append blank row to body of table.
+                row = tbody.append("tr");
+
+                // Extract array of values from "report" object.
+                // Loop through the new array:
+                //     1. Assign each value to a variable called "value"
+                //     2. For each value, append blank cell to table and append value to cell.
+                Object.values(report).forEach
+                (
+                    value => 
+                    {
+                        var cell = row.append("td");
+                        cell.text(value);
+                    }
+                )
+            }
+        )
+    }
+);
