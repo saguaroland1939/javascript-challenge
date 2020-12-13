@@ -1,4 +1,4 @@
-# Search alien sightings database
+# Search an alien sightings database
 
 ## "WAKE UP SHEEPLE! The extra-terrestrial menace has come to Earth and we here at ALIENS-R-REAL have collected all of the eye-witness reports we could to prove it!"
 
